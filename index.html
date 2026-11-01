@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Snippets for macOS</title>
-  <meta name="description" content="Snippets is a free Mac app for keeping, finding and live-previewing the code you reuse. Everything stays on your Mac.">
+  <meta name="description" content="Snippets is a free Mac app for keeping, finding and live-previewing the code you reuse, and sharing it with your AI agents over MCP. No accounts, no tracking.">
   <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Snippets for macOS">
-  <meta property="og:description" content="Keep, find and live-preview the code you reuse. Free, and everything stays on your Mac.">
+  <meta property="og:description" content="Keep, find and live-preview the code you reuse, and share it with your AI agents over MCP. Free, with no accounts and no tracking.">
   <meta property="og:image" content="https://snippets.halilbagosi.com/media/gallery-dark.webp">
   <!-- favicons -->
   <link rel="icon" href="icon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="icon-dark.png" media="(prefers-color-scheme: dark)">
 <!-- /favicons -->
   <link rel="stylesheet" href="style.css?v=0638dbdf40">
-  <link rel="stylesheet" href="home.css?v=b3fbd56d85">
+  <link rel="stylesheet" href="home.css?v=95de49b46c">
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}try{var n=navigator;if(/iPhone|iPad|iPod|Android/i.test(n.userAgent))document.documentElement.dataset.device="mobile"}catch(e){}</script>
-  <script src="site.js?v=f2ac265a15" defer></script>
+  <script src="site.js?v=34f149bb03" defer></script>
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
@@ -53,7 +53,7 @@
       <div class="wrap hero-copy">
         <p class="eyebrow reveal">// snippets for macOS</p>
         <h1 class="display reveal">The code you reuse,<br>kept close.</h1>
-        <p class="lede reveal">Save it once, find it in a keystroke, and watch it run right next to the source. A free, native Mac app. Everything stays on your Mac.</p>
+        <p class="lede reveal">Save it once, find it in a keystroke, watch it run right next to the source, and hand it to your AI agents. A free, native Mac app with no accounts and no tracking.</p>
         <div class="hero-actions reveal">
           <a class="btn btn-primary btn-lg" href="https://github.com/halilbagosi/snippetsPage/releases/latest/download/Snippets.dmg">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
@@ -94,6 +94,39 @@
     </section>
 
     <div id="features"></div>
+
+    <!-- Agents -->
+    <section id="agents" class="feature wrap">
+      <div class="feature-copy">
+        <p class="section-label reveal">// agents</p>
+        <h2 class="headline reveal">Your library, in every agent.</h2>
+        <p class="lede reveal">Connect Claude Code, Codex, Copilot, Cursor or any MCP client. Agents find your snippets, paste them with their helpers resolved, and save new ones when you ask.</p>
+        <ul class="ticks reveal">
+          <li>Copy Setup gives you the command for your agent</li>
+          <li>Off until you turn it on, read-only until you allow edits</li>
+          <li>Agents can never delete a snippet</li>
+        </ul>
+      </div>
+      <div class="feature-media reveal">
+        <figure class="media-frame agent-term glass" aria-label="An example Claude Code session: connecting Snippets over MCP, saving a function as a snippet, then using it later.">
+          <figcaption class="agent-term-bar">claude code</figcaption>
+<pre><span class="t-prompt">$</span> claude mcp add --scope user snippets -- \
+…/Snippets.app/Contents/MacOS/Snippets --mcp-stdio
+
+<span class="t-prompt">&gt;</span> save this debounce function as a snippet
+
+<span class="t-tool">snippets · create_snippet</span>
+<span class="t-dim">title: "Debounce"  language: "TypeScript"</span>
+Saved “Debounce” to your library.
+
+<span class="t-prompt">&gt;</span> use my debounce snippet in the search field
+
+<span class="t-tool">snippets · find_snippets</span> <span class="t-dim">query: "debounce"</span>
+<span class="t-tool">snippets · use_snippet</span>
+Added Debounce to SearchField.tsx.</pre>
+        </figure>
+      </div>
+    </section>
 
     <!-- Preview -->
     <section class="feature wrap">
@@ -190,9 +223,9 @@
           <p>Move your whole library, or one collection, as a single <code>.snippets</code> file.</p>
         </div>
         <div class="mini glass reveal">
-          <span class="mini-icon mini-trash" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12M8 6V4h4v2M5.5 6l.8 10h7.4l.8-10"/></svg></span>
-          <h3>Forgiving Trash</h3>
-          <p>Delete freely. Snippets go to Trash first, and come back with one click.</p>
+          <span class="mini-icon mini-detect" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 5.5 2.5 10l4 4.5M13.5 5.5l4 4.5-4 4.5M11.25 4l-2.5 12"/></svg></span>
+          <h3>Auto language detection</h3>
+          <p>Paste or type code and Snippets recognizes the language. Pick one yourself whenever it guesses wrong.</p>
         </div>
         <div class="mini glass reveal">
           <span class="mini-icon mini-filters" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12M6.5 10h7M9 15h2"/></svg></span>
@@ -207,7 +240,7 @@
       <div class="privacy-card glass reveal">
         <p class="section-label">// privacy</p>
         <h2 class="headline">Nothing leaves your Mac.</h2>
-        <p class="lede">No accounts, no analytics, no tracking. Your library lives on your Mac, and Snippets never sends it anywhere.</p>
+        <p class="lede">No accounts, no analytics, no tracking. Your library lives on your Mac, and Snippets never sends it anywhere. If you connect an AI agent, the snippets it reads go wherever that agent sends them. Agent access is off until you turn it on.</p>
         <div class="chip-row privacy-chips">
           <span class="chip" style="--c: var(--accent)">accounts:none</span>
           <span class="chip" style="--c: var(--pink)">analytics:none</span>

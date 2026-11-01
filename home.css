@@ -171,6 +171,28 @@
   object-fit: cover;
 }
 
+/* The agents example: real text, so it stays crisp and follows the theme. */
+.agent-term { margin: 0; font-family: var(--mono); }
+.agent-term-bar {
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-3);
+  border-bottom: 1px solid var(--glass-edge);
+}
+.agent-term pre {
+  margin: 0;
+  padding: 20px;
+  font: inherit;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.t-prompt { color: var(--accent-ink); font-weight: 600; }
+.t-tool { color: var(--lang-metal); font-weight: 600; }
+.t-dim { color: var(--text-3); }
+
 /* ───────────── Quick copy / capture pair ───────────── */
 
 .pair {

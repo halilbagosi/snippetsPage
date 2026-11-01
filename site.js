@@ -128,7 +128,7 @@
   videos.forEach((v) => player.observe(v));
 
   // ───────────── Menu bar scenes: the panel opens from the scissors ─────────────
-  // Opens once the scene is well in view, as if someone just clicked the
+  // Opens as soon as the scene is in view, as if someone just clicked the
   // status item; after that the scissors toggle it, and a click on the
   // desktop closes it — the way the real panel behaves.
 
@@ -141,9 +141,9 @@
     for (const { target, isIntersecting } of entries) {
       if (!isIntersecting) continue;
       opener.unobserve(target);
-      setTimeout(() => setOpen(target, true), reduceMotion.matches ? 0 : 450);
+      setTimeout(() => setOpen(target, true), reduceMotion.matches ? 0 : 100);
     }
-  }, { threshold: 0.55 });
+  }, { threshold: 0.3 });
   for (const desk of desks) {
     opener.observe(desk);
     const scissors = desk.querySelector(".desk-scissors");
