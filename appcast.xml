@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>Snippets</title>
+    <link>https://snippets.halilbagosi.com/appcast.xml</link>
+    <language>en</language>
+    <item>
+      <title>Snippets 1.1</title>
+      <pubDate>Mon, 02 Nov 2026 21:28:28 GMT</pubDate>
+      <sparkle:version>308</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description>&lt;h2&gt;Snippets 1.1&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;In-app updates.&lt;/strong&gt; Snippets can now tell you when a new version is out and install it for you. The second time you open the app, it asks whether to check automatically.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Check for Updates…&lt;/strong&gt; in the Snippets menu, and a new Updates section in Settings ▸ General with an on/off switch and Check Now.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each update check downloads a list of versions from this site. The &lt;a href="https://snippets.halilbagosi.com/privacy/"&gt;privacy policy&lt;/a&gt; describes exactly what that request shares.&lt;/p&gt;
+</description>
+      <enclosure url="https://github.com/halilbagosi/snippetsPage/releases/download/v1.1/Snippets.dmg" length="21728159" type="application/octet-stream" sparkle:edSignature="HJ2Uy4Uqc1WT+eubuM2Xepd1KxuwNOaC5w351dCUAEJUxUd39wFbUdCivr25qdAdIPin/EZTiFppmmDrOiF7Bg==" />
+    </item>
+  </channel>
+</rss>

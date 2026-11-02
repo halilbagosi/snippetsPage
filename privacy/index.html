@@ -75,9 +75,16 @@
       is saved wherever you choose. What happens to it after that is up to you.</p>
 
       <h2>When Snippets uses the network</h2>
-      <p>Snippets itself does not contact any server. There is one exception, which you turn on
-      for each snippet separately:</p>
+      <p>Snippets itself contacts no server except in the two cases below, and you control both:</p>
       <ul>
+        <li><strong>Update checks.</strong> The second time you open a version of Snippets that can update itself, it asks whether to
+        check for updates automatically. If you agree, or choose Snippets ▸ Check for Updates…,
+        it downloads <code>snippets.halilbagosi.com/appcast.xml</code>, a list of released
+        versions. The site's host, GitHub Pages, receives your IP address and the request's user agent,
+        which names the app and its version and the version of Sparkle, the open-source updater
+        Snippets uses. Nothing else is sent: no identifier, and no
+        information about your Mac or your snippets. Installing an update downloads it from GitHub.
+        You can turn automatic checks off in Settings.</li>
         <li><strong>npm packages from esm.sh.</strong> If a web preview imports npm packages and you
         allow that snippet to load them, the preview downloads those packages from
         <a href="https://esm.sh">esm.sh</a>, a third-party service. Like any web request, esm.sh
