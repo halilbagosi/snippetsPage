@@ -355,7 +355,8 @@ img, video { display: block; max-width: 100%; }
   border-color: var(--glass-edge);
   box-shadow: none;
   filter: none;
-  cursor: not-allowed;
+  /* Not clickable, so the cursor stays the arrow. */
+  cursor: default;
 }
 .btn.is-disabled:active { transform: none; }
 :root[data-device="mobile"] .btn[href$="Snippets.dmg"] { pointer-events: none; }
@@ -446,6 +447,17 @@ code, kbd {
   background: color-mix(in srgb, var(--c) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--c) 38%, transparent);
   white-space: nowrap;
+  /* Chips are labels, not controls: keep the arrow, not the text I-beam. */
+  cursor: default;
+  /* No border-color: site.js redraws the border as an SVG layer. */
+  transition: background-color 140ms ease-out, box-shadow 180ms ease-out, translate 180ms var(--ease-out);
+}
+@media (hover: hover) {
+  .chip:hover {
+    background: color-mix(in srgb, var(--c) 20%, transparent);
+    box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--c) 70%, transparent);
+    translate: 0 -1px;
+  }
 }
 .chip-row {
   display: flex;
@@ -473,6 +485,22 @@ code, kbd {
     filter 360ms var(--ease-out),
     transform var(--spring-reveal-d) var(--spring-reveal);
   transition-delay: calc(min(var(--i, 0) * 20ms, 120ms));
+}
+/* .reveal.is-in replaces the whole transition list, so a revealed chip
+   restates its hover transitions, undelayed by the reveal stagger. */
+.js .chip.reveal.is-in {
+  transition:
+    opacity 360ms var(--ease-out),
+    filter 360ms var(--ease-out),
+    transform var(--spring-reveal-d) var(--spring-reveal),
+    background-color 140ms ease-out,
+    box-shadow 180ms ease-out,
+    translate 180ms var(--ease-out);
+  transition-delay:
+    calc(min(var(--i, 0) * 20ms, 120ms)),
+    calc(min(var(--i, 0) * 20ms, 120ms)),
+    calc(min(var(--i, 0) * 20ms, 120ms)),
+    0ms, 0ms, 0ms;
 }
 
 /* ───────────── Footer ───────────── */
@@ -589,6 +617,8 @@ code, kbd {
   .glow { animation: none; }
   .js .reveal { transform: none; filter: none; }
   .js .reveal.is-in { transition: opacity 200ms ease; transition-delay: 0ms; }
+  .js .chip.reveal.is-in { transition: opacity 200ms ease, background-color 140ms ease-out, box-shadow 180ms ease-out; transition-delay: 0ms; }
+  .chip:hover { translate: none; }
   .theme-toggle .thumb, .faq summary::after { transition-duration: 1ms; }
   .faq details::details-content { transition: none; }
   .btn:active { transform: none; }
