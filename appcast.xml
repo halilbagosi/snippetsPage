@@ -5,6 +5,21 @@
     <link>https://snippets.halilbagosi.com/appcast.xml</link>
     <language>en</language>
     <item>
+      <title>Snippets 1.1.1</title>
+      <pubDate>Wed, 11 Nov 2026 12:29:48 GMT</pubDate>
+      <sparkle:version>331</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description>&lt;ul&gt;
+&lt;li&gt;If your library can't be opened, Snippets now explains what happened and offers recovery from a backup instead of crashing.&lt;/li&gt;
+&lt;li&gt;Snippets asks before importing a .snippets file opened from outside the app.&lt;/li&gt;
+&lt;li&gt;Replaced or changed code no longer keeps the preview trust it had before.&lt;/li&gt;
+&lt;li&gt;Attachment changes in the editor apply on save, and Discard cleans them up.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <enclosure url="https://github.com/halilbagosi/snippetsPage/releases/download/v1.1.1/Snippets.dmg" length="21761229" type="application/octet-stream" sparkle:edSignature="jhuqSNZgn2AU8yHY2N+UU1rME0D7peBBSh7SdSNB2cZD6HsJ8+PY1oSPWeAEh4pXNkA0z7qE8eD+jm/HRDj0Bg==" />
+    </item>
+    <item>
       <title>Snippets 1.1</title>
       <pubDate>Mon, 02 Nov 2026 21:28:28 GMT</pubDate>
       <sparkle:version>308</sparkle:version>
