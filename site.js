@@ -1,6 +1,5 @@
-// Snippets site behaviour. Every page loads this with `defer`; the theme
-// itself is applied by a one-line inline script in <head> before first paint
-// (see THEME_BOOT in the pages) so there is never a flash of the wrong theme.
+// Snippets site behaviour. Every page loads this with `defer`. The theme is
+// pure CSS (prefers-color-scheme); only the videos follow it from here.
 
 (() => {
   const root = document.documentElement;
@@ -9,48 +8,10 @@
 
   root.classList.add("js");
 
-  // ───────────── Theme: auto / light / dark ─────────────
+  // ───────────── Theme: always the system appearance ─────────────
 
-  const store = {
-    get() { try { return localStorage.getItem("theme"); } catch { return null; } },
-    set(v) { try { v ? localStorage.setItem("theme", v) : localStorage.removeItem("theme"); } catch {} },
-  };
-
-  const resolvedTheme = () =>
-    root.dataset.theme || (systemDark.matches ? "dark" : "light");
-
-  const toggle = document.querySelector(".theme-toggle");
-  const choices = ["auto", "light", "dark"];
-
-  function paintToggle() {
-    if (!toggle) return;
-    const choice = root.dataset.theme || "auto";
-    const index = choices.indexOf(choice);
-    toggle.querySelectorAll("button").forEach((b) =>
-      b.setAttribute("aria-pressed", String(b.dataset.choice === choice)));
-    toggle.querySelector(".thumb").style.transform = `translateX(${index * 30}px)`;
-  }
-
-  function applyTheme(choice) {
-    const commit = () => {
-      if (choice === "auto") delete root.dataset.theme;
-      else root.dataset.theme = choice;
-      store.set(choice === "auto" ? null : choice);
-      paintToggle();
-      syncVideos();
-    };
-    // Ease the light↔dark change instead of jumping (a hard brightness flip
-    // is what accessibility guidance says to avoid).
-    if (document.startViewTransition && !reduceMotion.matches) document.startViewTransition(commit);
-    else commit();
-  }
-
-  toggle?.addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-choice]");
-    if (b) applyTheme(b.dataset.choice);
-  });
-  systemDark.addEventListener("change", () => { if (!root.dataset.theme) syncVideos(); });
-  paintToggle();
+  const resolvedTheme = () => (systemDark.matches ? "dark" : "light");
+  systemDark.addEventListener("change", () => syncVideos());
 
   // ───────────── No download on phones and tablets ─────────────
   // Snippets is a Mac app. The <head> script marks browsers whose user agent
@@ -360,7 +321,6 @@
     }
     // Borders are baked into the SVG in the current theme's colour.
     const reshape = () => shaped.forEach(shape);
-    new MutationObserver(reshape).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
     systemDark.addEventListener("change", reshape);
   }
 

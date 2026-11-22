@@ -5,6 +5,19 @@
     <link>https://snippets.halilbagosi.com/appcast.xml</link>
     <language>en</language>
     <item>
+      <title>Snippets 1.2</title>
+      <pubDate>Sun, 22 Nov 2026 02:36:41 GMT</pubDate>
+      <sparkle:version>344</sparkle:version>
+      <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description>&lt;ul&gt;
+&lt;li&gt;Code in a snippet's detail view is syntax-highlighted again, and the editor keeps its colours as soon as it opens.&lt;/li&gt;
+&lt;li&gt;When a new version is available, an update button appears in the top bar of your library; click it to see what's new and install.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <enclosure url="https://github.com/halilbagosi/snippetsPage/releases/download/v1.2/Snippets.dmg" length="21788668" type="application/octet-stream" sparkle:edSignature="PwmQAJZu+S9RelVRwc8rSjLTkEQ9GeaM1ZPKa5b7fKO7VJV1ep44mGYyx/wJJP8MOpiGFgw/NGgIXdTrXv9wCA==" />
+    </item>
+    <item>
       <title>Snippets 1.1.1</title>
       <pubDate>Wed, 11 Nov 2026 12:29:48 GMT</pubDate>
       <sparkle:version>331</sparkle:version>

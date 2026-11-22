@@ -3,8 +3,7 @@
    grid, drifting colour glows, glass surfaces with a white hairline rim,
    `// section` monospace labels and lowercase `lang:` chips.
 
-   Theme: follows the system unless the visitor picks one; site.js sets
-   [data-theme] on <html> before first paint. */
+   Theme: always follows the system appearance. */
 
 /* ───────────── Tokens ───────────── */
 
@@ -57,10 +56,9 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Dark: the app's own dark canvas. Applied by system preference unless the
-   visitor chose light, or always when they chose dark. */
+/* Dark: the app's own dark canvas, when the system is in dark mode. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root {
     color-scheme: dark;
     --canvas: #0e1014;
     --canvas-deep: #090b0e;
@@ -83,39 +81,15 @@
     --glow-d: rgba(255, 189, 59, 0.1);
   }
 }
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --canvas: #0e1014;
-  --canvas-deep: #090b0e;
-  --text: #e6edf3;
-  --text-2: #c2cad3;
-  --text-3: #949ca6;
-  --accent: #0a84ff;
-  --accent-ink: #4aa3ff;
-  --glass: rgba(28, 33, 40, 0.55);
-  --glass-strong: rgba(24, 28, 34, 0.78);
-  --glass-rim: rgba(255, 255, 255, 0.14);
-  --glass-edge: rgba(255, 255, 255, 0.06);
-  --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 40px -10px rgba(0, 0, 0, 0.55);
-  --well: rgba(10, 12, 16, 0.6);
-  --code-bg: #0a0b0d;
-  --dot: rgba(255, 255, 255, 0.075);
-  --glow-a: rgba(10, 132, 255, 0.2);
-  --glow-b: rgba(255, 55, 95, 0.15);
-  --glow-c: rgba(168, 85, 247, 0.17);
-  --glow-d: rgba(255, 189, 59, 0.1);
-}
 
 /* Light/dark media: an element marked .theme-light shows only in light,
    .theme-dark only in dark. Hidden <img loading=lazy> never downloads. */
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .theme-dark { display: none !important; }
+  .theme-dark { display: none !important; }
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-light { display: none !important; }
+  .theme-light { display: none !important; }
 }
-:root[data-theme="light"] .theme-dark { display: none !important; }
-:root[data-theme="dark"] .theme-light { display: none !important; }
 
 /* ───────────── Base ───────────── */
 
@@ -264,44 +238,6 @@ img, video { display: block; max-width: 100%; }
 }
 .nav-links a:hover { text-decoration: none; background: var(--glass-edge); color: var(--text); }
 .nav-links a[aria-current="page"] { color: var(--text); background: var(--glass-edge); }
-
-/* Theme toggle: segmented auto / light / dark */
-.theme-toggle {
-  position: relative;
-  display: flex;
-  padding: 3px;
-  border-radius: 999px;
-  background: var(--glass-edge);
-}
-.theme-toggle button {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 28px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: none;
-  color: var(--text-3);
-  cursor: pointer;
-  transition: color 140ms ease-out, transform 100ms ease-out;
-}
-.theme-toggle button:active { transform: scale(0.9); }
-.theme-toggle button[aria-pressed="true"] { color: var(--text); }
-.theme-toggle svg { width: 15px; height: 15px; }
-.theme-toggle .thumb {           /* slides between segments (popover spring) */
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 30px;
-  height: 28px;
-  border-radius: 999px;
-  background: var(--glass-strong);
-  box-shadow: inset 0 1px 0 var(--glass-rim), 0 1px 3px rgba(0, 0, 0, 0.12);
-  transition: transform var(--spring-pop-d) var(--spring-pop);
-}
 
 /* ───────────── Buttons ───────────── */
 
@@ -619,7 +555,7 @@ code, kbd {
   .js .reveal.is-in { transition: opacity 200ms ease; transition-delay: 0ms; }
   .js .chip.reveal.is-in { transition: opacity 200ms ease, background-color 140ms ease-out, box-shadow 180ms ease-out; transition-delay: 0ms; }
   .chip:hover { translate: none; }
-  .theme-toggle .thumb, .faq summary::after { transition-duration: 1ms; }
+  .faq summary::after { transition-duration: 1ms; }
   .faq details::details-content { transition: none; }
   .btn:active { transform: none; }
 }

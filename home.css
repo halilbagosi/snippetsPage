@@ -14,7 +14,7 @@
   --lang-json: #047857;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root {
     --lang-html: #ef4444;
     --lang-css: #ec4899;
     --lang-js: #eab308;
@@ -25,17 +25,6 @@
     --lang-swift: #f97316;
     --lang-json: #10b981;
   }
-}
-:root[data-theme="dark"] {
-  --lang-html: #ef4444;
-  --lang-css: #ec4899;
-  --lang-js: #eab308;
-  --lang-ts: #3b82f6;
-  --lang-react: #61dafb;
-  --lang-glsl: #1e90ff;
-  --lang-metal: #a855f7;
-  --lang-swift: #f97316;
-  --lang-json: #10b981;
 }
 
 /* ───────────── Hero ───────────── */
